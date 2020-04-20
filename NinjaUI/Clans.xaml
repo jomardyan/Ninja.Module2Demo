@@ -1,0 +1,18 @@
+﻿<Window x:Class="NinjaUI.ClansWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NinjaUI" 
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mi="clr-namespace:MaterialIcons;assembly=MaterialIcons"
+        mc:Ignorable="d"
+        Title="Clans" Height="287" Width="364">
+    <Grid>
+        
+        <Label Content="Name" HorizontalAlignment="Left" Margin="35,55,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="95,130,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click">
+        </Button>
+        <TextBox x:Name="ClanName" HorizontalAlignment="Left"  Height="23" Margin="95,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        
+    </Grid>
+</Window>
