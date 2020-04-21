@@ -122,5 +122,11 @@ namespace NinjaUI
                 ComboClans.Items.Refresh();
             }
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var AddEquipment = new AddEquipment();
+            AddEquipment.Show(); 
+        }
     }
 }

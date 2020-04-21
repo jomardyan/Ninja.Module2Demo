@@ -33,8 +33,9 @@
         </ComboBox>
         <Label x:Name="StatusLabel" Content="Status" HorizontalAlignment="Left" Margin="250,275,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <ComboBox x:Name="ComboClans"  ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="105,55,0,0" VerticalAlignment="Top" Width="175"/>
-        <Button Content="Add Clan" HorizontalAlignment="Left" Margin="700,24,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Add Clan" HorizontalAlignment="Left" Margin="680,24,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
         <Button Content="Refresh Clans" HorizontalAlignment="Left" Margin="313,55,0,0" VerticalAlignment="Top" Width="87" Height="22" Click="Button_Click_1"/>
+        <Button Content="Add Equipment" HorizontalAlignment="Left" Margin="680,66,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click_2"/>
 
 
     </Grid>

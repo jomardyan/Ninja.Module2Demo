@@ -54,10 +54,10 @@
     <Compile Include="Classes.cs" />
     <Compile Include="Enums\EquipmentType.cs" />
     <Compile Include="Enums\NinjaTypes.cs" />
+    <Compile Include="Interfaces\IModificationHostory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
