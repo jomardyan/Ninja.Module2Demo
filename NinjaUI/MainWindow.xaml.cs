@@ -7,6 +7,11 @@ using System.Windows.Media;
 using FluentValidation;
 using FluentValidation.Results;
 using System.Linq;
+using System.CodeDom;
+using System.Data.Entity;
+using System.Windows.Documents;
+using System.Collections.Generic;
+using System.Windows.Data;
 
 namespace NinjaUI
 {
@@ -28,8 +33,9 @@ namespace NinjaUI
     {
         public MainWindow()
         {
-            InitializeComponent();
             
+            InitializeComponent();
+
         }
 
         //Delagate to print mesage to debug line
@@ -56,15 +62,19 @@ namespace NinjaUI
             {
                 MessageBox.Show(ex.Message);
             }
+            var cid = (Clan) ComboClans.SelectedItem;
+
             var ninja = new Ninja
             {
                 Name = TB_NAME.Text,
                 ServerInOniwaban = Convert.ToBoolean(ninjaserver),
                 DateOfBirth = DataP.SelectedDate.HasValue ? (DateTime)DataP.SelectedDate : DateTime.Now,
-                ClanId =  0
+                DataCreated = DateTime.Now,
+                DataModified = DateTime.Now,
+                ClanId = cid.Id
             };
 
-            
+
             try
             {
                 NinjarValidator validator = new NinjarValidator();
@@ -87,17 +97,21 @@ namespace NinjaUI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            List<Clan> x; 
+
             using (var context = new NinjaContext())
             {
-                context.Database.Log = NinjaTools.print;
-                var q = from b in context.Clans
-                        select b.ClanName;
+                //var clans = context.Clans.OrderBy(n => n.ClanName).Select(n => n.ClanName).ToList();
 
-                foreach (var item in q)
-                {
-                    ComboClans.Items.Add(item);
-                }
+                var clans2 = context.Clans.AsNoTracking().OrderBy(c => c.ClanName).ToList();
+
+                x = clans2; 
+
             }
+
+            CollectionViewSource clanViewSource = (CollectionViewSource)this.FindResource("clanViewSource");
+            // Load data by setting the CollectionViewSource.Source property:
+            clanViewSource.Source = x;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

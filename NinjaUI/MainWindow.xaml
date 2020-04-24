@@ -6,10 +6,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NinjaUI"
         xmlns:Custom="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+        xmlns:Classes="clr-namespace:NinjaDomain.Classes;assembly=NinjaDomain.Classes" 
         x:Class="NinjaUI.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid>
+        Title="MainWindow" Height="497" Width="899" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="clanViewSource" d:DesignSource="{d:DesignInstance {x:Type Classes:Clan}, CreateList=True}"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource clanViewSource}">
         <Button x:Name="Button_add" Content="Add" HorizontalAlignment="Left" Margin="45,195,0,0" VerticalAlignment="Top" Width="235" Click="Button_add_Click" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -31,8 +36,8 @@
             <Label Content="True"/>
             <Label Content="False"/>
         </ComboBox>
-        <Label x:Name="StatusLabel" Content="Status" HorizontalAlignment="Left" Margin="250,275,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <ComboBox x:Name="ComboClans"  ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="105,55,0,0" VerticalAlignment="Top" Width="175"/>
+        <Label x:Name="StatusLabel" Content="Status" HorizontalAlignment="Left" Margin="40,263,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <ComboBox x:Name="ComboClans"  ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="105,55,0,0" VerticalAlignment="Top" Width="175" DisplayMemberPath="ClanName"/>
         <Button Content="Add Clan" HorizontalAlignment="Left" Margin="680,24,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
         <Button Content="Refresh Clans" HorizontalAlignment="Left" Margin="313,55,0,0" VerticalAlignment="Top" Width="87" Height="22" Click="Button_Click_1"/>
         <Button Content="Add Equipment" HorizontalAlignment="Left" Margin="680,66,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click_2"/>

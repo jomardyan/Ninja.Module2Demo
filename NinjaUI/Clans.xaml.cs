@@ -33,15 +33,18 @@ namespace NinjaUI
         {
             if (ClanName.Text.Length > 0)
             {
-                Clan clan1 = new Clan { ClanName = ClanName.Text };
+                Clan clan1 = new Clan { 
+                    ClanName = ClanName.Text, 
+                    DataCreated = DateTime.Now, 
+                    DataModified = DateTime.Now };
+
                 using (var context = new NinjaContext())
                 {
-                    while (!context.ChangeTracker.HasChanges())
-                    {
+                
                         context.Database.Log = NinjaTools.print;
                         context.Clans.Add(clan1);
                         context.SaveChanges();
-                    }
+                    
                     
                 }
             }
